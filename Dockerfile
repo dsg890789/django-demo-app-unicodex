@@ -8,6 +8,6 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY --from=gcr.io/berglas/berglas:latest /bin/berglas /bin/berglas
+COPY --from=gcr.io/berglas/berglas:0.5.1 /bin/berglas /bin/berglas
 
 CMD exec /bin/berglas exec -- gunicorn --bind :$PORT --workers 1 --threads 8 unicodex.wsgi:application
